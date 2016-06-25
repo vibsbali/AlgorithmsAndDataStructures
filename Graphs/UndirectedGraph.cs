@@ -11,7 +11,7 @@ namespace Graphs
         public int NumberOfVertices { get; }
         public int NumberOfEdges { get; private set; }
 
-        //We can also use List<T,List<TV>> instead of array
+        //We can also use List<T,LinkedList<TV>> instead of array
         private readonly Bag<T>[] adjencyArray;
 
         public UndirectedGraph(int numberOfVertices)
@@ -44,7 +44,7 @@ namespace Graphs
                 throw new IndexOutOfRangeException();
             }
 
-            return adjencyArray[vertexIndex].items;
+            return adjencyArray[vertexIndex].Items;
         }
 
         public IEnumerable<T> GetAdjencyVertices(Vertex<T> vertex)
@@ -76,21 +76,27 @@ namespace Graphs
 
         /// <summary>
         /// Helper class for implementing AdjencyList
-        /// Instead of creating a bag class we can implement List<T,List<TV>>
+#pragma warning disable 1570
+        /// Instead of creating a bag class we can implement List<T,LinkedList<TV>>
+#pragma warning restore 1570
+#pragma warning disable 1570
         /// </summary>
+#pragma warning restore 1570
         /// <typeparam name="T"></typeparam>
+#pragma warning disable 693
         internal class Bag<T>
+#pragma warning restore 693
         {
-            internal List<T> items;
+            internal LinkedList<T> Items;
 
             public Bag()
             {
-                items = new List<T>();
+                Items = new LinkedList<T>();
             }
 
             internal void Add(T value)
             {
-                items.Add(value);
+                Items.AddFirst(value);
             }
         }
     }
