@@ -12,16 +12,16 @@ namespace Graphs
         public int NumberOfEdges { get; private set; }
 
         //We can also use List<T,LinkedList<TV>> instead of array
-        private readonly Bag<T>[] adjencyArray;
+        private readonly Bag<T>[] adjacencyArray;
 
         public UndirectedGraph(int numberOfVertices)
         {
             NumberOfVertices = numberOfVertices;
-            adjencyArray = new Bag<T>[NumberOfVertices];
+            adjacencyArray = new Bag<T>[NumberOfVertices];
 
             for (int i = 0; i < numberOfVertices; i++)
             {
-                adjencyArray[i] = new Bag<T>();
+                adjacencyArray[i] = new Bag<T>();
             }
         }
 
@@ -30,26 +30,26 @@ namespace Graphs
             var indexOfFirstVertex = firstVertex.Index;
             var indexOfConnectingVertex = connectingVertex.Index;
 
-            adjencyArray[indexOfFirstVertex].Add(connectingVertex.Value);
-            adjencyArray[indexOfConnectingVertex].Add(firstVertex.Value);
+            adjacencyArray[indexOfFirstVertex].Add(connectingVertex.Value);
+            adjacencyArray[indexOfConnectingVertex].Add(firstVertex.Value);
 
             NumberOfEdges++;
         }
 
         
-        public IEnumerable<T> GetAdjencyVertices(int vertexIndex)
+        public IEnumerable<T> GetAdjacencyVertices(int vertexIndex)
         {
             if (vertexIndex > NumberOfVertices || vertexIndex < 0)
             {
                 throw new IndexOutOfRangeException();
             }
 
-            return adjencyArray[vertexIndex].Items;
+            return adjacencyArray[vertexIndex].Items;
         }
 
-        public IEnumerable<T> GetAdjencyVertices(Vertex<T> vertex)
+        public IEnumerable<T> GetAdjacencyVertices(Vertex<T> vertex)
         {
-            return GetAdjencyVertices(vertex.Index);
+            return GetAdjacencyVertices(vertex.Index);
         }
 
         /// <summary>
@@ -64,7 +64,7 @@ namespace Graphs
             for (int i = 0; i < NumberOfVertices; i++)
             {
                 s.Append(i + ": ");
-                foreach (var w in GetAdjencyVertices(i))
+                foreach (var w in GetAdjacencyVertices(i))
                 {
                     s.Append(" " + w + ",");
                 }

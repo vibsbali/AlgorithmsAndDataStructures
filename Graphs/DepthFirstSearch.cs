@@ -23,7 +23,7 @@ namespace Graphs
         private void Dfs(UndirectedGraph<int> graph, int vertexBeingVisted)
         {
             marked[vertexBeingVisted] = true;
-            foreach (var adjacentVertex in graph.GetAdjencyVertices(vertexBeingVisted))
+            foreach (var adjacentVertex in graph.GetAdjacencyVertices(vertexBeingVisted))
             {
                 count++;
                 if (!marked[adjacentVertex])
