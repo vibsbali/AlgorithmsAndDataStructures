@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmsAndDataStructures", "AlgorithmsAndDataStructures\AlgorithmsAndDataStructures.csproj", "{56625ABA-F28B-4D31-86A6-5ECA8A82B674}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphs", "Graphs\Graphs.csproj", "{B8E03FF4-BEC3-4DCC-80F7-737D6D80BF1B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{56625ABA-F28B-4D31-86A6-5ECA8A82B674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56625ABA-F28B-4D31-86A6-5ECA8A82B674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56625ABA-F28B-4D31-86A6-5ECA8A82B674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8E03FF4-BEC3-4DCC-80F7-737D6D80BF1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8E03FF4-BEC3-4DCC-80F7-737D6D80BF1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8E03FF4-BEC3-4DCC-80F7-737D6D80BF1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8E03FF4-BEC3-4DCC-80F7-737D6D80BF1B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
