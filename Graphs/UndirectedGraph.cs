@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Graphs
 {
@@ -35,19 +36,42 @@ namespace Graphs
             NumberOfEdges++;
         }
 
-        public IEnumerable<Vertex<T>> GetAdjencyVertices(int vertexIndex)
+        
+        public IEnumerable<T> GetAdjencyVertices(int vertexIndex)
         {
-            throw new NotImplementedException();
+            if (vertexIndex > NumberOfVertices || vertexIndex < 0)
+            {
+                throw new IndexOutOfRangeException();
+            }
+
+            return adjencyArray[vertexIndex].items;
         }
 
-        public IEnumerable<Vertex<T>> GetAdjencyVertices(Vertex<T> vertex)
+        public IEnumerable<T> GetAdjencyVertices(Vertex<T> vertex)
         {
-            throw new NotImplementedException();
+            return GetAdjencyVertices(vertex.Index);
         }
 
+        /// <summary>
+        /// string representation of the graph's adjacency lists
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
-            return base.ToString();
+            var s = new StringBuilder();
+            s.Append(NumberOfVertices + " vertices, " + NumberOfEdges + " edges" + "\n");
+
+            for (int i = 0; i < NumberOfVertices; i++)
+            {
+                s.Append(i + ": ");
+                foreach (var w in GetAdjencyVertices(i))
+                {
+                    s.Append(" " + w + ",");
+                }
+                s.Append("\n");
+            }
+
+            return s.ToString();
         }
 
         /// <summary>

@@ -23,6 +23,8 @@ namespace AlgorithmsAndDataStructures
             graph.AddEdge(new Vertex<int>(7, 7), new Vertex<int>(8, 8));
             graph.AddEdge(new Vertex<int>(9, 9), new Vertex<int>(11, 11));
             graph.AddEdge(new Vertex<int>(5, 5), new Vertex<int>(3, 3));
+
+            Console.WriteLine(graph);
         }
     }
 }
