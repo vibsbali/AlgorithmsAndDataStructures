@@ -9,8 +9,35 @@ namespace Graphs
 
         private int[] edgeTo;
         private readonly int sourceVertex;
-        
 
+        #region Constructors for Directed Graph
+        //Directed Graph Search
+        public DepthFirstSearch(DirectedGraph graph, int sourceVertex)
+        {
+            edgeTo = new int[graph.NumberOfVertices];
+            marked = new bool[graph.NumberOfVertices];
+
+            this.sourceVertex = sourceVertex;
+            Dfs(graph, sourceVertex);
+        }
+
+        private void Dfs(DirectedGraph graph, int vertexBeingVisted)
+        {
+            marked[vertexBeingVisted] = true;
+            foreach (var adjacentVertex in graph.GetAdjacencyVertices(vertexBeingVisted))
+            {
+                count++;
+                if (!marked[adjacentVertex])
+                {
+                    edgeTo[adjacentVertex] = vertexBeingVisted;
+                    Dfs(graph, adjacentVertex);
+                }
+            }
+        }
+        #endregion
+
+        #region Constructors for Undirected Graph
+        //Undirected Graph Search
         public DepthFirstSearch(UndirectedGraph<int> graph, int sourceVertex)
         {
             edgeTo = new int[graph.NumberOfVertices];
@@ -33,6 +60,7 @@ namespace Graphs
                 }
             }
         }
+        #endregion
 
         /// <summary>
         /// Is Vertex Connected to source vertex?
@@ -59,7 +87,7 @@ namespace Graphs
             if (PathExists(vertex))
             {
                 var path = new Stack<int>();
-                int root= vertex;
+                int root = vertex;
                 do
                 {
                     path.Push(root);
@@ -71,7 +99,7 @@ namespace Graphs
             }
 
             return null;
-        } 
+        }
 
         /// <summary>
         /// How many vertices are connected to source vertex

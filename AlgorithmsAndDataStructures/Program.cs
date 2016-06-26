@@ -23,26 +23,37 @@ namespace AlgorithmsAndDataStructures
             //graph.AddEdge(new Vertex<int>(9, 9), new Vertex<int>(11, 11));
             //graph.AddEdge(new Vertex<int>(5, 5), new Vertex<int>(3, 3));
 
-            var graph = new UndirectedGraph<int>(6);
-            graph.AddEdge(new Vertex<int>(0,0), new Vertex<int>(5, 5));
-            graph.AddEdge(new Vertex<int>(2, 2), new Vertex<int>(4, 4));
-            graph.AddEdge(new Vertex<int>(2, 2), new Vertex<int>(3, 3));
-            graph.AddEdge(new Vertex<int>(1, 1), new Vertex<int>(2, 2));
-            graph.AddEdge(new Vertex<int>(0, 0), new Vertex<int>(1, 1));
-            graph.AddEdge(new Vertex<int>(3, 3), new Vertex<int>(4, 4));
-            graph.AddEdge(new Vertex<int>(3, 3), new Vertex<int>(5, 5));
-            graph.AddEdge(new Vertex<int>(0, 0), new Vertex<int>(2, 2));
+            //var graph = new UndirectedGraph<int>(6);
+            //graph.AddEdge(new Vertex<int>(0,0), new Vertex<int>(5, 5));
+            //graph.AddEdge(new Vertex<int>(2, 2), new Vertex<int>(4, 4));
+            //graph.AddEdge(new Vertex<int>(2, 2), new Vertex<int>(3, 3));
+            //graph.AddEdge(new Vertex<int>(1, 1), new Vertex<int>(2, 2));
+            //graph.AddEdge(new Vertex<int>(0, 0), new Vertex<int>(1, 1));
+            //graph.AddEdge(new Vertex<int>(3, 3), new Vertex<int>(4, 4));
+            //graph.AddEdge(new Vertex<int>(3, 3), new Vertex<int>(5, 5));
+            //graph.AddEdge(new Vertex<int>(0, 0), new Vertex<int>(2, 2));
+
+            var graph = new DirectedGraph(13);
+
+            var arrayOfVs = new[] {4, 2, 3, 6, 0, 2, 11, 12, 9, 9, 8, 10, 11, 4, 3, 7, 8, 5, 0, 6, 6, 7};
+            var arrayOfWs = new[] {2, 3, 2, 0, 1, 0, 12, 9, 10, 11, 9, 12, 4, 3, 5, 8, 7, 4, 5, 4, 9, 6};
+
+            for (int i = 0; i < arrayOfVs.Length; i++)
+            {
+                graph.AddEdge(arrayOfVs[i], arrayOfWs[i]);
+            }
+
 
             Console.WriteLine(graph);
 
-            var dfs = new DepthFirstSearch(graph, 0);
-            
-            Console.WriteLine(dfs.Count());
-            Console.WriteLine(dfs.PathExists(5));
+            var dfs = new DepthFirstSearch(graph, 12);
 
-            foreach (var i in dfs.PathTo(0))
+            var w = 9;
+            Console.WriteLine(dfs.PathExists(w));
+
+            foreach (var path in dfs.PathTo(w))
             {
-                Console.Write(i + " -> ");
+                Console.WriteLine(path);
             }
         }
     }

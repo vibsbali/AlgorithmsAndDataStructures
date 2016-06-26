@@ -14,7 +14,12 @@ namespace Graphs
         public DirectedGraph(int numberOfVertices)
         {
             NumberOfVertices = numberOfVertices;
-            adjacencyArray = new Bag<int>[NumberOfVertices];        
+            adjacencyArray = new Bag<int>[NumberOfVertices];
+
+            for (int i = 0; i < numberOfVertices; i++)
+            {
+                adjacencyArray[i] = new Bag<int>();
+            }
         }
 
         public void AddEdge(int v, int w)
@@ -52,7 +57,7 @@ namespace Graphs
                 s.Append(i + ": ");
                 foreach (var w in GetAdjacencyVertices(i))
                 {
-                    s.Append(" " + w + ",");
+                    s.Append(" " + w + " -> ");
                 }
                 s.Append("\n");
             }
