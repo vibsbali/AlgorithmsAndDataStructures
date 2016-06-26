@@ -10,15 +10,27 @@ namespace Graphs
         private Queue<int> backingQueue;
 
         private readonly int sourceVertex;
-        private readonly UndirectedGraph<int> graph;
+        private readonly UndirectedGraph<int> undirectedGraph;
+        private readonly DirectedGraph directedGraph;
 
-        public BreadthFirstSearch(UndirectedGraph<int> graph, int sourceVertex)
+        public BreadthFirstSearch(UndirectedGraph<int> undirectedGraph, int sourceVertex)
         {
-            this.graph = graph;
+            this.undirectedGraph = undirectedGraph;
             this.sourceVertex = sourceVertex;
 
-            marked = new bool[graph.NumberOfVertices];
-            edgeTo = new int[graph.NumberOfVertices];
+            marked = new bool[undirectedGraph.NumberOfVertices];
+            edgeTo = new int[undirectedGraph.NumberOfVertices];
+
+            Bfs();
+        }
+
+        public BreadthFirstSearch(DirectedGraph directedGraph, int sourceVertex)
+        {
+            this.directedGraph = directedGraph;
+            this.sourceVertex = sourceVertex;
+
+            marked = new bool[undirectedGraph.NumberOfVertices];
+            edgeTo = new int[undirectedGraph.NumberOfVertices];
 
             Bfs();
         }
@@ -38,7 +50,7 @@ namespace Graphs
                 var currentVertex = backingQueue.Dequeue();
 
                 //Step 3. Get list of adjacent vertices 
-                foreach (var vertex in graph.GetAdjacencyVertices(currentVertex))
+                foreach (var vertex in undirectedGraph.GetAdjacencyVertices(currentVertex))
                 {
                     //Step 4. For each of unmarked adjacent vertex check if it is visited
                     if (!marked[vertex])

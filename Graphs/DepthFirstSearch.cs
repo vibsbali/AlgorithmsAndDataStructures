@@ -82,6 +82,12 @@ namespace Graphs
             return HasVisted(vertex);
         }
 
+        /// <summary>
+        /// This method is not the correct way to find the shortest path.. 
+        /// To find shortest path, Breadth First Search is used
+        /// </summary>
+        /// <param name="vertex"></param>
+        /// <returns></returns>
         public IEnumerable<int> PathTo(int vertex)
         {
             if (PathExists(vertex))
