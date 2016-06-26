@@ -41,7 +41,7 @@ namespace Graphs
                     edgeTo[w] = sourceVertex;
                     Dfs(graph, w);
                 }
-                else if (marked[w])
+                else if (onStack[w])
                 {
                     cycle = new Stack<int>();
                     for (int i = sourceVertex; i != w; i = edgeTo[i])
