@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BreadthFirstSearch.cs" />
     <Compile Include="ConnectedComponents.cs" />
+    <Compile Include="DirectedGraph.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DepthFirstSearch.cs" />
     <Compile Include="UndirectedGraph.cs" />
