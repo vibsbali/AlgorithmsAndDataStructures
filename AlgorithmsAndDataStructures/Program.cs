@@ -46,15 +46,19 @@ namespace AlgorithmsAndDataStructures
 
             Console.WriteLine(graph);
 
-            var dfs = new DepthFirstSearch(graph, 12);
+            var dfs = new DirectedCycle(graph);
 
             var w = 9;
-            Console.WriteLine(dfs.PathExists(w));
 
-            foreach (var path in dfs.PathTo(w))
+            Console.WriteLine(dfs.HasCycle());
+            if (dfs.HasCycle())
             {
-                Console.WriteLine(path);
+                foreach (var path in dfs.RetrieveCycle())
+                {
+                    Console.Write(path + " -> ");
+                }
             }
+            
         }
     }
 }
