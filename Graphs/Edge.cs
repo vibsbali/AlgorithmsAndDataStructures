@@ -1,5 +1,5 @@
 ﻿/*
-* This ADT will be used for 
+* This ADT will be used for constructing Weighted Graphs
 *
 */
 using System;
