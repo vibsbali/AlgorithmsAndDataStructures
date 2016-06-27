@@ -45,6 +45,7 @@
     <Compile Include="DfsVertexOrdering.cs" />
     <Compile Include="DirectedCycle.cs" />
     <Compile Include="DirectedGraph.cs" />
+    <Compile Include="Edge.cs" />
     <Compile Include="KosarajuSCC.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DepthFirstSearch.cs" />
