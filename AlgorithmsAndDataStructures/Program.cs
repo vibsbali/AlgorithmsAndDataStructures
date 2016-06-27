@@ -91,32 +91,48 @@ namespace AlgorithmsAndDataStructures
             #endregion
 
             #region KosarajuSCC
-            var graph = new DirectedGraph(13);
+           // var graph = new DirectedGraph(13);
 
-            var arrayOfVs = new[] { 4, 2, 3, 6, 0, 2, 11, 12, 9, 9, 8, 10, 11, 4, 3, 7, 8, 5, 0, 6, 6, 7 };
-            var arrayOfWs = new[] { 2, 3, 2, 0, 1, 0, 12, 9, 10, 11, 9, 12, 4, 3, 5, 8, 7, 4, 5, 4, 9, 6 };
+           // var arrayOfVs = new[] { 4, 2, 3, 6, 0, 2, 11, 12, 9, 9, 8, 10, 11, 4, 3, 7, 8, 5, 0, 6, 6, 7 };
+           // var arrayOfWs = new[] { 2, 3, 2, 0, 1, 0, 12, 9, 10, 11, 9, 12, 4, 3, 5, 8, 7, 4, 5, 4, 9, 6 };
 
 
-            for (int i = 0; i < arrayOfVs.Length; i++)
+           // for (int i = 0; i < arrayOfVs.Length; i++)
+           // {
+           //     graph.AddEdge(arrayOfVs[i], arrayOfWs[i]);
+           // }
+
+           //var kcc = new KosarajuSCC(graph);
+           // Console.WriteLine(kcc.Count);
+
+           // foreach (var @group in kcc.GetGroups())
+           // {
+           //     Console.Write("Items in group " + @group.Key + " : ");
+           //     foreach (var i in @group.Value)
+           //     {
+           //         Console.Write(i + ",");
+           //     }
+           //     Console.WriteLine();
+           // }
+            #endregion
+
+            #region MST
+            var graph = new EdgeWeightedGraph(8);
+            graph.AddEdge(new Edge(0, 7, .16));
+            graph.AddEdge(new Edge(1, 7, .19));
+            graph.AddEdge(new Edge(0, 2, .26));
+            graph.AddEdge(new Edge(2, 3, .17));
+            graph.AddEdge(new Edge(5, 7, .28));
+            graph.AddEdge(new Edge(4, 5, .35));
+            graph.AddEdge(new Edge(6, 2, .40));
+
+            var mst = new KruskalMST(graph);
+            foreach (var edge in mst.GetEdges())
             {
-                graph.AddEdge(arrayOfVs[i], arrayOfWs[i]);
+                Console.WriteLine(edge);
             }
-
-           var kcc = new KosarajuSCC(graph);
-            Console.WriteLine(kcc.Count);
-
-            foreach (var @group in kcc.GetGroups())
-            {
-                Console.Write("Items in group " + @group.Key + " : ");
-                foreach (var i in @group.Value)
-                {
-                    Console.Write(i + ",");
-                }
-                Console.WriteLine();
-            }
-#endregion
-
-
+            Console.WriteLine("Total Weight :" + mst.TotalWeight());
+            #endregion
         }
     }
 }

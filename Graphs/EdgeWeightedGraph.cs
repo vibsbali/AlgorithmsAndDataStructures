@@ -39,7 +39,7 @@ namespace Graphs
             return adjacentList[v].Items;
         }
 
-        public IEnumerable<Edge> GetEdges()
+        public IEnumerable<Edge> Edges()
         {
             var b = new Bag<Edge>();
 

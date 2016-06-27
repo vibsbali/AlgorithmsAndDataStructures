@@ -46,10 +46,14 @@
     <Compile Include="DirectedCycle.cs" />
     <Compile Include="DirectedGraph.cs" />
     <Compile Include="Edge.cs" />
+    <Compile Include="EdgeWeightedGraph.cs" />
+    <Compile Include="IMinimumSpanningTree.cs" />
     <Compile Include="KosarajuSCC.cs" />
+    <Compile Include="KruskalMST.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DepthFirstSearch.cs" />
     <Compile Include="UndirectedGraph.cs" />
+    <Compile Include="UnionFind.cs" />
     <Compile Include="Vertex.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
