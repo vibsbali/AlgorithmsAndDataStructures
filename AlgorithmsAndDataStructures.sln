@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlgorithmsAndDataStructures
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graphs", "Graphs\Graphs.csproj", "{B8E03FF4-BEC3-4DCC-80F7-737D6D80BF1B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringSortingAlgorithms", "StringSortingAlgorithms\StringSortingAlgorithms.csproj", "{2A0DEECA-DC91-4937-B0CB-4E1CC1195923}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{B8E03FF4-BEC3-4DCC-80F7-737D6D80BF1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8E03FF4-BEC3-4DCC-80F7-737D6D80BF1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8E03FF4-BEC3-4DCC-80F7-737D6D80BF1B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A0DEECA-DC91-4937-B0CB-4E1CC1195923}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A0DEECA-DC91-4937-B0CB-4E1CC1195923}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A0DEECA-DC91-4937-B0CB-4E1CC1195923}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A0DEECA-DC91-4937-B0CB-4E1CC1195923}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
