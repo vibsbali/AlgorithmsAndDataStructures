@@ -32,21 +32,21 @@
                 for (int j = 0; j < length; j++)
                 {
                     var charValue = A[j][d];
-                    count[charValue]++;
+                    count[charValue + 1]++;
                 }    
 
                 //Step 2 for each value in count array update the values by creating a frequency table i.e. cumulative running total
                 for (int j = 0; j < radix; j++)
                 {
-                    count[j + 1] += count[j];  //If count array's length is radix then, at last step count[255 + 1]
-                }
+                    count[j + 1] += count[j];  //If count array's length is radix then, at last step count[255 + 1] 
+                }                              //Also notice count[0] will maintain its value 
 
                 //Step 3 update aux table
                 for (int j = 0; j < length; j++)    //Go through all the strings inside string array
                 {
                     var existingIndexOfCharInCountArray = count[A[j][d]];
-                    aux[existingIndexOfCharInCountArray - 1] = A[j]; //We do -1 because the item with cumulative 1 belongs to first place in aux i.e. 0
-                    count[A[j][d]] -= 1;    //decrement the exisiting value in cumulative running total by 1
+                    aux[existingIndexOfCharInCountArray] = A[j]; 
+                    count[A[j][d]] += 1;    //increment the exisiting value in cumulative running total by 1
                 }
 
                 //step 3 copy the values from aux to original array

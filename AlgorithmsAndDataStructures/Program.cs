@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using StringSortingAlgorithms;
 
 namespace AlgorithmsAndDataStructures
@@ -138,15 +139,22 @@ namespace AlgorithmsAndDataStructures
             #region StringSortingClientCode
             #region LSDSearch
 
-            //var originalStrings = new[] { "4abcd", "5cada", "2edfd", "4caga", "42342", "42342", "32adfd", "12311", "12abcd", "ax25hp", "jk23aj" };
+            //var originalStrings = new[] { "4PGC938","2IYE230","3CIO720","1ICK750","1OHV845","4JZY524", "1ICK750", "3CIO720", "1OHV845", "1OHV845", "2RLA629", "2RLA629", "3ATW723" };
+            var originalStrings = new[] {"a", "b", "c", "e", "a", "f", "a", "e", "b"};
 
-            //var lsdSort = new LSDSort(originalStrings);
-            //lsdSort.SortString();
-            //foreach (var originalString in originalStrings)
-            //{
-            //    Console.WriteLine(originalString);
-            //}
-            
+            var lsdSort = new LSDSort(originalStrings);
+            lsdSort.SortString();
+            foreach (var originalString in originalStrings)
+            {
+                Console.WriteLine(originalString);
+            }
+
+            Console.WriteLine("Finished sorting one");
+            var sortedArray = originalStrings.OrderBy(i => i);
+            foreach (var item in sortedArray)
+            {
+                Console.WriteLine(item);
+            }
             #endregion
 
             var sampleString = new[]
@@ -154,7 +162,7 @@ namespace AlgorithmsAndDataStructures
                 "are", "by", "sea", "seashells", "seashells", "sells", "sells", "she", "she", "shells", "shore", "surely",
                 "the", "the"
             };
-            var originalStrings = new[] { "Hello", "Alloh", "adbde", "efghi", "eghij", "jamej", "janih", "thett", "12abcd", "vaibh", "sheeb" };
+            
 
             var msd = new MSDSort(sampleString);
             msd.SortString();
