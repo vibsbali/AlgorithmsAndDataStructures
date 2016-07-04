@@ -141,7 +141,7 @@ namespace AlgorithmsAndDataStructures
             #region StringSortingClientCode
             #region LSDSearch
 
-            var originalStrings = new[] { "4abcd", "5cada", "2edfd", "4caga", "42342", "42342", "32adfd", "12311", "12abcd", "vaibh", "sheeb" };
+            var originalStrings = new[] { "Hello", "Alloh", "adbde", "efghi", "eghij", "jamej", "janih", "thett", "12abcd", "vaibh", "sheeb" };
 
             var lsdSort = new LSDSort(originalStrings);
             lsdSort.SortString();

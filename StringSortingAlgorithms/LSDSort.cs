@@ -28,28 +28,31 @@ namespace StringSortingAlgorithms
 
             for (int d = dimension - 1; d >= 0; d--)
             {
-                var count = new int[radix + 1];
+                //We use radix + 1 because of cumulative total array in step 2
+                //We create cumulative array by i + 1 
+                var count = new int[radix + 1]; 
+
                 //Step 1 for each string in stringArray find the char that exists at index = dimension and
                 //add one to it i.e. if 0 then it would be 1 and so forth
                 //finally increment the count
                 for (int j = 0; j < length; j++)
                 {
                     var charValue = A[j][d];
-                    count[charValue + 1]++;
+                    count[charValue]++;
                 }    
 
                 //Step 2 for each value in count array update the values by creating a frequency table i.e. cumulative running total
                 for (int j = 0; j < radix; j++)
                 {
-                    count[j + 1] += count[j];
+                    count[j + 1] += count[j];  //If count array's length is radix then, at last step count[255 + 1]
                 }
 
                 //Step 3 update aux table
                 for (int j = 0; j < length; j++)    //Go through all the strings inside string array
                 {
                     var existingIndexOfCharInCountArray = count[A[j][d]];
-                    aux[existingIndexOfCharInCountArray] = A[j];
-                    count[A[j][d]] += 1;    //Increment the exisiting value in cumulative running total by 1
+                    aux[existingIndexOfCharInCountArray - 1] = A[j]; //We do -1 because the item with cumulative 1 belongs to first place in aux i.e. 0
+                    count[A[j][d]] -= 1;    //decrement the exisiting value in cumulative running total by 1
                 }
 
                 //step 3 copy the values from aux to original array
