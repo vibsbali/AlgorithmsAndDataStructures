@@ -9,27 +9,27 @@
 
 namespace StringSortingAlgorithms
 {
-    class MSDSort
+    public class MSDSort
     {
-        private string[] a;
+        private string[] strings;
         private readonly int lengthOfArray;
         private string[] aux;
         private int Radix = 256;
 
         public MSDSort(string[] a)
         {
-            this.a = a;
+            this.strings = a;
             lengthOfArray = a.Length;
             aux = new string[lengthOfArray];
         }
 
         public void SortString()
         {
-            sort(a, 0, lengthOfArray - 1, aux, 0);  //Initially we call sort with digit = 0 i.e. sort of first character
+            sort(strings, 0, lengthOfArray - 1, aux, 0);  //Initially we call sort with digit = 0 i.e. sort of first character
         }
 
         //sort from a[lo] to a[high], starting at the dth character
-        private void sort(string[] strings, int lo, int high, string[] aux1, int d)
+        private void sort(string[] a, int lo, int high, string[] aux1, int d)
         {
             //create a count array with +2 this time in LSD we had 1
             var count = new int[Radix + 2];
@@ -50,7 +50,7 @@ namespace StringSortingAlgorithms
             for (int i = lo; i <= high; i++)
             {
                 int c = ChartAt(a[i], d);
-                aux[count[c + 1]++] = a[i];
+                aux[count[c]++] = a[i];
             }
 
             //copy back
@@ -69,12 +69,12 @@ namespace StringSortingAlgorithms
         //We will use CharAt method to get the int value of a character (ASCII) or -1 if we have finished end of line
         private static int ChartAt(string s, int d)
         {
-            if (s[d] < s.Length)
+            if (d == s.Length)
             {
-                return s[d];
+                return -1;
             }
 
-            return -1;
+            return s[d];
         }
     }
 }

@@ -138,16 +138,32 @@ namespace AlgorithmsAndDataStructures
             #region StringSortingClientCode
             #region LSDSearch
 
-            var originalStrings = new[] { "4abcd", "5cada", "2edfd", "4caga", "42342", "42342", "32adfd", "12311", "12abcd", "ax25hp", "jk23aj" };
+            //var originalStrings = new[] { "4abcd", "5cada", "2edfd", "4caga", "42342", "42342", "32adfd", "12311", "12abcd", "ax25hp", "jk23aj" };
 
-            var lsdSort = new LSDSort(originalStrings);
-            lsdSort.SortString();
-            foreach (var originalString in originalStrings)
+            //var lsdSort = new LSDSort(originalStrings);
+            //lsdSort.SortString();
+            //foreach (var originalString in originalStrings)
+            //{
+            //    Console.WriteLine(originalString);
+            //}
+            
+            #endregion
+
+            var sampleString = new[]
             {
-                Console.WriteLine(originalString);
+                "are", "by", "sea", "seashells", "seashells", "sells", "sells", "she", "she", "shells", "shore", "surely",
+                "the", "the"
+            };
+
+            var msd = new MSDSort(sampleString);
+            msd.SortString();
+
+            foreach (var s in sampleString)
+            {
+                Console.WriteLine(s);
             }
 
-            #endregion
+
             #endregion
         }
     }
