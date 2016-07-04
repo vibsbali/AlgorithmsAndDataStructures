@@ -140,21 +140,21 @@ namespace AlgorithmsAndDataStructures
             #region LSDSearch
 
             //var originalStrings = new[] { "4PGC938","2IYE230","3CIO720","1ICK750","1OHV845","4JZY524", "1ICK750", "3CIO720", "1OHV845", "1OHV845", "2RLA629", "2RLA629", "3ATW723" };
-            var originalStrings = new[] {"a", "b", "c", "e", "a", "f", "a", "e", "b"};
+            ////var originalStrings = new[] {"a", "b", "c", "e", "a", "f", "a", "e", "b"};
 
-            var lsdSort = new LSDSort(originalStrings);
-            lsdSort.SortString();
-            foreach (var originalString in originalStrings)
-            {
-                Console.WriteLine(originalString);
-            }
+            //var lsdSort = new LSDSort(originalStrings);
+            //lsdSort.SortString();
+            //foreach (var originalString in originalStrings)
+            //{
+            //    Console.WriteLine(originalString);
+            //}
 
-            Console.WriteLine("Finished sorting one");
-            var sortedArray = originalStrings.OrderBy(i => i);
-            foreach (var item in sortedArray)
-            {
-                Console.WriteLine(item);
-            }
+            //Console.WriteLine("Finished sorting one");
+            //var sortedArray = originalStrings.OrderBy(i => i);
+            //foreach (var item in sortedArray)
+            //{
+            //    Console.WriteLine(item);
+            //}
             #endregion
 
             var sampleString = new[]
