@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Linq;
-using Graphs;
 using StringSortingAlgorithms;
 
 namespace AlgorithmsAndDataStructures
@@ -141,16 +138,33 @@ namespace AlgorithmsAndDataStructures
             #region StringSortingClientCode
             #region LSDSearch
 
+            //var originalStrings = new[] { "4abcd", "5cada", "2edfd", "4caga", "42342", "42342", "32adfd", "12311", "12abcd", "ax25hp", "jk23aj" };
+
+            //var lsdSort = new LSDSort(originalStrings);
+            //lsdSort.SortString();
+            //foreach (var originalString in originalStrings)
+            //{
+            //    Console.WriteLine(originalString);
+            //}
+            
+            #endregion
+
+            var sampleString = new[]
+            {
+                "are", "by", "sea", "seashells", "seashells", "sells", "sells", "she", "she", "shells", "shore", "surely",
+                "the", "the"
+            };
             var originalStrings = new[] { "Hello", "Alloh", "adbde", "efghi", "eghij", "jamej", "janih", "thett", "12abcd", "vaibh", "sheeb" };
 
-            var lsdSort = new LSDSort(originalStrings);
-            lsdSort.SortString();
-            foreach (var originalString in originalStrings)
+            var msd = new MSDSort(sampleString);
+            msd.SortString();
+
+            foreach (var s in sampleString)
             {
-                Console.WriteLine(originalString);
+                Console.WriteLine(s);
             }
 
-            #endregion
+
             #endregion
         }
     }
