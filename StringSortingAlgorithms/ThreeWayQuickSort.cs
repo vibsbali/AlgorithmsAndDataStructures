@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace StringSortingAlgorithms
+﻿namespace StringSortingAlgorithms
 {
     public class ThreeWayQuickSort
     {
@@ -32,7 +26,7 @@ namespace StringSortingAlgorithms
                 int t = CharAt(a[i], d);
                 if (t < v)
                 {
-                    Exchange(a, lt, i);
+                    Exchange(a, lt, i);  //i is only updated when t < v or where t == v
                     lt++;
                     i++;
                 }
@@ -49,7 +43,12 @@ namespace StringSortingAlgorithms
 
             // a[lo..lt-1] < v = a[lt..gt] < a[gt+1..hi]. 
             Sort(a, firstIndex, lt - 1, d);
-            if (v >= 0) Sort(a, lt, gt, d + 1);
+
+            if (v >= 0)
+            {
+                Sort(a, lt, gt, d + 1);
+            }
+
             Sort(a, gt + 1, lastIndex, d);
         }
 
