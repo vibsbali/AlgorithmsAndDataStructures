@@ -156,11 +156,10 @@ namespace AlgorithmsAndDataStructures
             //    Console.WriteLine(item);
             //}
             #endregion
-
+            //"sea", "seashells",  "sells", 
             var sampleString = new[]
             {
-                "are", "by", "sea", "seashells", "seashells", "sells", "sells", "she", "she", "shells", "shore", "surely",
-                "the", "the"
+                "seashells", "by", "are", "sells", "she", "she", "shells", "shore", "surely", "the", "the"
             };
 
             #region MSD

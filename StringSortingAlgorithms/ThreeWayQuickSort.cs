@@ -15,7 +15,7 @@ namespace StringSortingAlgorithms
 
         //Uses a three way partioning methodology using digitToSortOn as character element
         //columnToSortOn is an alias for dth character or digitToSortOn
-        private void Sort(string[] a, int firstIndex, int lastIndex, int columnToSortOn)
+        private void Sort(string[] a, int firstIndex, int lastIndex, int d)
         {
             //This check will unwind the recursion stack and is the terminating statement for recursion
             if (lastIndex <= firstIndex) 
@@ -23,42 +23,34 @@ namespace StringSortingAlgorithms
                 return;
             }
 
-            //We will get ascii value of d'th character of the very first item in the array / group (left, middle, right) 
-            //this will act as a pivot value
-            int asciiValue = CharAt(a[firstIndex], columnToSortOn);
+            int lt = firstIndex, gt = lastIndex;
 
-            //Once we have the ascii of very first item, we pick the next item for comparison i.e. firstIndex + 1 
+            int v = CharAt(a[firstIndex], d);
             int i = firstIndex + 1;
-            int leftPartioningIndex = firstIndex;
-            int rightPartioningIndex = lastIndex;
-
-            while (i <= lastIndex) //We screen through item begining with firstIndex + 1 to lastIndex of subarray
+            while (i <= gt)
             {
-                int t = CharAt(a[i], columnToSortOn);
-
-                if (t < asciiValue) //asciiValue is constant we are comparing items in subarray with first item - asciiValue is the pivot
+                int t = CharAt(a[i], d);
+                if (t < v)
                 {
-                    Exchange(a, leftPartioningIndex, i++);
-                    leftPartioningIndex++;
+                    Exchange(a, lt, i);
+                    lt++;
+                    i++;
                 }
-                else if (t > asciiValue) //asciiValue is constant we are comparing items in subarray with first item
+                else if (t > v)
                 {
-                    Exchange(a, i, rightPartioningIndex);
-                    rightPartioningIndex--;
+                    Exchange(a, i, gt);
+                    gt--;
                 }
-
-                i++;
+                else
+                {
+                    i++;
+                }
             }
 
-            //Sort 3 subarrays recursively
-            Sort(a, firstIndex, leftPartioningIndex - 1, columnToSortOn);
-
-            if (asciiValue >= 0)
-            {
-                Sort(a, leftPartioningIndex, rightPartioningIndex, columnToSortOn+1);
-            }
-
-            Sort(a, rightPartioningIndex + 1, lastIndex, columnToSortOn);
+            // a[lo..lt-1] < v = a[lt..gt] < a[gt+1..hi]. 
+            Sort(a, firstIndex, lt - 1, d);
+            if (v >= 0) Sort(a, lt, gt, d + 1);
+            Sort(a, gt + 1, lastIndex, d);
         }
 
         //Method to exchange string from one index to another
