@@ -156,13 +156,12 @@ namespace AlgorithmsAndDataStructures
             //    Console.WriteLine(item);
             //}
             #endregion
-            //"sea", "seashells",  "sells", 
-            var sampleString = new[]
-            {
-                "seashells", "by", "are", "sells", "she", "she", "shells", "shore", "surely", "the", "the"
-            };
-
             #region MSD
+            //"sea", "seashells",  "sells", 
+            //var sampleString = new[]
+            //{
+            //    "seashells", "by", "are", "sells", "she", "she", "shells", "shore", "surely", "the", "the"
+            //};
             //var msd = new MSDSort(sampleString);
             //msd.SortString();
 
@@ -170,13 +169,41 @@ namespace AlgorithmsAndDataStructures
             //{
             //    Console.WriteLine(s);
             //}
-#endregion
+            #endregion
+            #region ThreeWayQuickSort
+            //"sea", "seashells",  "sells", 
+            //var sampleString = new[]
+            //{
+            //    "seashells", "by", "are", "sells", "she", "she", "shells", "shore", "surely", "the", "the"
+            //};
+            //var threeWayQuickSort = new ThreeWayQuickSort(sampleString);
+            //foreach (var s in sampleString)
+            //{
+            //    Console.WriteLine(s);
+            //}
+            #endregion
 
-            var threeWayQuickSort = new ThreeWayQuickSort(sampleString);
-            foreach (var s in sampleString)
+            #region Trie
+            var trie = new Trie<int>();
+            trie.Put("by", 4);
+            trie.Put("sea", 6);
+            trie.Put("sells", 1);
+            trie.Put("she", 0);
+            trie.Put("shells", 3);
+            trie.Put("shore", 7);
+            trie.Put("the", 5);
+
+            try
             {
-                Console.WriteLine(s);
+                Console.WriteLine(trie.Get("she"));
+                Console.WriteLine(trie.Get("se"));
             }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            
+            #endregion
             #endregion
         }
     }
