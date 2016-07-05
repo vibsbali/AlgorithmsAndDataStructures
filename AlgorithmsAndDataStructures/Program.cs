@@ -162,17 +162,22 @@ namespace AlgorithmsAndDataStructures
                 "are", "by", "sea", "seashells", "seashells", "sells", "sells", "she", "she", "shells", "shore", "surely",
                 "the", "the"
             };
-            
 
-            var msd = new MSDSort(sampleString);
-            msd.SortString();
+            #region MSD
+            //var msd = new MSDSort(sampleString);
+            //msd.SortString();
 
+            //foreach (var s in sampleString)
+            //{
+            //    Console.WriteLine(s);
+            //}
+#endregion
+
+            var threeWayQuickSort = new ThreeWayQuickSort(sampleString);
             foreach (var s in sampleString)
             {
                 Console.WriteLine(s);
             }
-
-
             #endregion
         }
     }
