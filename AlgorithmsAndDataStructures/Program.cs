@@ -185,23 +185,27 @@ namespace AlgorithmsAndDataStructures
 
             #region Trie
             var trie = new Trie<int>();
-            trie.Put("by", 4);
-            trie.Put("sea", 6);
-            trie.Put("sells", 1);
-            trie.Put("she", 0);
-            trie.Put("shells", 3);
-            trie.Put("shore", 7);
-            trie.Put("the", 5);
-
+            var sampleString = new[]
+            {
+                "seashells", "by", "are", "sells", "she", "she", "shells", "shore", "surely", "the", "the", "making", "yahoo"
+            };
+            for (int i = 0; i < sampleString.Length; i++)
+            {
+                trie.Put(sampleString[i], i);
+            }
+            
             try
             {
                 Console.WriteLine(trie.Get("she"));
+                Console.WriteLine(trie.Get("yahoo"));
                 Console.WriteLine(trie.Get("se"));
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
+
+
             
             #endregion
             #endregion

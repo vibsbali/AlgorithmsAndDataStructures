@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Xml.Schema;
 
 namespace StringSortingAlgorithms
 {
@@ -8,10 +9,38 @@ namespace StringSortingAlgorithms
         private const short Radix = 256;
         private readonly Node<T> root = new Node<T>();
 
-        private class Node<T>
+        private class Node<T1>
         {
             public object Value;
-            public readonly Node<T>[] Next = new Node<T>[Radix];
+            public readonly Node<T1>[] Next = new Node<T1>[Radix];
+        }
+
+
+        public IEnumerable<string> KeysWithPrefix(string prefix)
+        {
+            var queue = new Queue<string>();
+            var node = RetrieveNode(root, prefix, 0);
+            Collect(node, prefix,queue);
+            return queue;
+        } 
+
+        //Inorder traversal
+        private void Collect(Node<T> node, string prefix, Queue<string> queue)
+        {
+            if (node == null)
+            {
+                return;
+            }
+
+            if (node.Value != null)
+            {
+                queue.Enqueue(prefix);
+            }
+
+            for (int i = 0; i < Radix; i++)
+            {
+                Collect(node.Next[i], prefix + (char)i, queue);
+            }
         }
 
         public void Put(string key, T value)
@@ -51,10 +80,17 @@ namespace StringSortingAlgorithms
                 throw new InvalidOperationException("Key cannot be null");
             }
 
-            return Search(root, key, 0);
+            var node = RetrieveNode(root, key, 0);
+            if (node.Value != null)
+            {
+                return (T)node.Value;
+            }
+            //otherwise
+            //following is to handle ambiguity of int default to 0
+            throw new KeyNotFoundException("The given key was not present in the Trie");
         }
 
-        private T Search(Node<T> node, string key, int d)
+        private Node<T> RetrieveNode(Node<T> node, string key, int d)
         {
             if (node == null)
             {
@@ -65,18 +101,12 @@ namespace StringSortingAlgorithms
 
             if (d == key.Length)
             {
-                if (node.Value != null)
-                {
-                    return (T)node.Value;
-                }
-                //otherwise
-                //following is to handle ambiguity of int default to 0
-                throw new KeyNotFoundException("The given key was not present in the Trie");
+               return node;
             }
 
             //find the character at a specified postion in the string denoted by d
             char c = key[d];
-            return Search(node.Next[c], key, d + 1);
+            return RetrieveNode(node.Next[c], key, d + 1);
         }
     }
 }
