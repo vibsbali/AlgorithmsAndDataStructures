@@ -205,9 +205,24 @@ namespace AlgorithmsAndDataStructures
                 Console.WriteLine(ex.Message);
             }
 
+            var resultset = trie.KeysWithPrefix("sh");
+            foreach (var result in resultset)
+            {
+                Console.WriteLine(result);
+            }
 
-            
+            trie.Delete("she");
+            try
+            {
+                Console.WriteLine(trie.Get("shells"));
+                Console.WriteLine(trie.Get("she"));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             #endregion
+
             #endregion
         }
     }

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Xml.Schema;
 
 namespace StringSortingAlgorithms
 {
@@ -15,6 +14,44 @@ namespace StringSortingAlgorithms
             public readonly Node<T1>[] Next = new Node<T1>[Radix];
         }
 
+        public bool Delete(string key)
+        {
+            //Find out if key exist
+            var result = Remove(root, key, 0);
+            return result != null;
+        }
+
+        private Node<T> Remove(Node<T> node, string key, int d)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+
+            if (d == key.Length)
+            {
+                node.Value = null;
+            }
+            else
+            {
+                var c = key[d];
+                node.Next[c] = Remove(node.Next[c], key, d + 1);
+            }
+
+            if (node.Value != null)
+            {
+                return node;    
+            }
+
+            for (int i = 0; i < Radix; i++)
+            {
+                if (node.Next[i] != null)
+                {
+                    return node;
+                }
+            }
+            return null;
+        }
 
         public IEnumerable<string> KeysWithPrefix(string prefix)
         {
@@ -27,16 +64,20 @@ namespace StringSortingAlgorithms
         //Inorder traversal
         private void Collect(Node<T> node, string prefix, Queue<string> queue)
         {
+            //This is our terminating statement for recursion
             if (node == null)
             {
                 return;
             }
 
+            //This is how we find out whether the node has a value and should be enqued or not
             if (node.Value != null)
             {
                 queue.Enqueue(prefix);
             }
 
+            //In the next statement prefix + (char)i is the most important and is how string is built
+            //When (char)i will be \0 if the node value is null otherwise it would be char value of associated ascii value
             for (int i = 0; i < Radix; i++)
             {
                 Collect(node.Next[i], prefix + (char)i, queue);
