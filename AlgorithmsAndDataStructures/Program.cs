@@ -211,11 +211,16 @@ namespace AlgorithmsAndDataStructures
                 Console.WriteLine(result);
             }
 
-            trie.Delete("she");
+            trie.Delete("shells");
+            resultset = trie.KeysWithPrefix("sh");
+            foreach (var result in resultset)
+            {
+                Console.WriteLine(result);
+            }
             try
             {
-                Console.WriteLine(trie.Get("shells"));
                 Console.WriteLine(trie.Get("she"));
+                Console.WriteLine(trie.Get("shells"));
             }
             catch (Exception ex)
             {

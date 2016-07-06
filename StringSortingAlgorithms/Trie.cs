@@ -16,39 +16,45 @@ namespace StringSortingAlgorithms
 
         public bool Delete(string key)
         {
+            var pathToKey = new Stack<Node<T>>();
             //Find out if key exist
-            var result = Remove(root, key, 0);
+            var result = Remove(root, key, 0, pathToKey);
+            while (pathToKey.Count > 1 && result != null) //Setting count > 1 because we do not want to remove root node we could also use do while with condition 
+            {                                               //where node != root
+                var node = pathToKey.Pop();
+                for (int i = 0; i < Radix; i++)
+                {
+                    if (node.Next[i] == null)
+                    {
+                        node = null;
+                    }
+                    else
+                    {
+                        return true;
+                    }
+                }
+            }
             return result != null;
         }
 
-        private Node<T> Remove(Node<T> node, string key, int d)
+        //path is a stack of all the nodes upto key which can be used to remove if required
+        private Node<T> Remove(Node<T> node, string key, int d, Stack<Node<T>> path)
         {
             if (node == null)
             {
                 return null;
             }
 
+            path.Push(node);
             if (d == key.Length)
             {
                 node.Value = null;
+                return node;
             }
             else
             {
                 var c = key[d];
-                node.Next[c] = Remove(node.Next[c], key, d + 1);
-            }
-
-            if (node.Value != null)
-            {
-                return node;    
-            }
-
-            for (int i = 0; i < Radix; i++)
-            {
-                if (node.Next[i] != null)
-                {
-                    return node;
-                }
+                Remove(node.Next[c], key, d + 1, path);
             }
             return null;
         }
