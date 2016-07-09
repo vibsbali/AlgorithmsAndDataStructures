@@ -1,6 +1,6 @@
 ﻿using System;
-using System.Linq;
-using StringSortingAlgorithms;
+using FundamentalDataStructures;
+
 
 namespace AlgorithmsAndDataStructures
 {
@@ -184,50 +184,71 @@ namespace AlgorithmsAndDataStructures
             #endregion
 
             #region Trie
-            var trie = new Trie<int>();
-            var sampleString = new[]
-            {
-                "seashells", "by", "are", "sells", "she", "she", "shells", "shore", "surely", "the", "the", "making", "yahoo"
-            };
-            for (int i = 0; i < sampleString.Length; i++)
-            {
-                trie.Put(sampleString[i], i);
-            }
-            
-            try
-            {
-                Console.WriteLine(trie.Get("she"));
-                Console.WriteLine(trie.Get("yahoo"));
-                Console.WriteLine(trie.Get("se"));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            //var trie = new Trie<int>();
+            //var sampleString = new[]
+            //{
+            //    "seashells", "by", "are", "sells", "she", "she", "shells", "shore", "surely", "the", "the", "making", "yahoo"
+            //};
+            //for (int i = 0; i < sampleString.Length; i++)
+            //{
+            //    trie.Put(sampleString[i], i);
+            //}
 
-            var resultset = trie.KeysWithPrefix("sh");
-            foreach (var result in resultset)
-            {
-                Console.WriteLine(result);
-            }
+            //try
+            //{
+            //    Console.WriteLine(trie.Get("she"));
+            //    Console.WriteLine(trie.Get("yahoo"));
+            //    Console.WriteLine(trie.Get("se"));
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
 
-            trie.Delete("shells");
-            resultset = trie.KeysWithPrefix("sh");
-            foreach (var result in resultset)
-            {
-                Console.WriteLine(result);
-            }
-            try
-            {
-                Console.WriteLine(trie.Get("she"));
-                Console.WriteLine(trie.Get("shells"));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            //var resultset = trie.KeysWithPrefix("sh");
+            //foreach (var result in resultset)
+            //{
+            //    Console.WriteLine(result);
+            //}
+
+            //trie.Delete("shells");
+            //resultset = trie.KeysWithPrefix("sh");
+            //foreach (var result in resultset)
+            //{
+            //    Console.WriteLine(result);
+            //}
+            //try
+            //{
+            //    Console.WriteLine(trie.Get("she"));
+            //    Console.WriteLine(trie.Get("shells"));
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //}
             #endregion
 
+            #endregion
+
+            #region FundamentalDataStructures
+            var myStack = new Stack<int>(3);
+            for (int i = 0; i < 10; i++)
+            {
+                myStack.Push(i);
+            }
+
+            Console.WriteLine(myStack.Count);
+
+
+            foreach (var item in myStack)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Poping Stack");
+            while (!myStack.IsEmpty())
+            {
+                Console.WriteLine(myStack.Pop());
+            }
             #endregion
         }
     }

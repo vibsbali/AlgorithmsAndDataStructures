@@ -50,6 +50,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\FundamentalDataStructures\FundamentalDataStructures.csproj">
+      <Project>{704bc04f-70a3-44dc-82ba-bf5db78b2fa1}</Project>
+      <Name>FundamentalDataStructures</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Graphs\Graphs.csproj">
       <Project>{b8e03ff4-bec3-4dcc-80f7-737d6d80bf1b}</Project>
       <Name>Graphs</Name>

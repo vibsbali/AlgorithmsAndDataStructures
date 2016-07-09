@@ -8,7 +8,6 @@ namespace FundamentalDataStructures
     {
         void Push(T item);
         T Pop();
-        int Count();
         bool IsEmpty();
     }
 }
