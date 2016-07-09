@@ -253,26 +253,47 @@ namespace AlgorithmsAndDataStructures
             #endregion
 
             #region QueueClient
-#endregion
-              var queue = new FundamentalDataStructures.Queue<int>(2);
-            queue.Enqueue(1);
-            queue.Enqueue(2);
-            Console.WriteLine(queue.Dequeue());
-            queue.Enqueue(3);
-            Console.WriteLine(queue.Dequeue());
-            queue.Enqueue(4);
-            queue.Enqueue(5);
-            queue.Enqueue(6);
-            queue.Enqueue(7);
-            queue.Enqueue(8);
-            queue.Enqueue(9);
+            //  var queue = new FundamentalDataStructures.Queue<int>(2);
+            //queue.Enqueue(1);
+            //queue.Enqueue(2);
+            //Console.WriteLine(queue.Dequeue());
+            //queue.Enqueue(3);
+            //Console.WriteLine(queue.Dequeue());
+            //queue.Enqueue(4);
+            //queue.Enqueue(5);
+            //queue.Enqueue(6);
+            //queue.Enqueue(7);
+            //queue.Enqueue(8);
+            //queue.Enqueue(9);
 
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
-            Console.WriteLine(queue.Dequeue());
+            //Console.WriteLine(queue.Dequeue());
+            //Console.WriteLine(queue.Dequeue());
+            //Console.WriteLine(queue.Dequeue());
+            //Console.WriteLine(queue.Dequeue());
 
-            Console.WriteLine(queue.Dequeue());
+            //Console.WriteLine(queue.Dequeue());
+            #endregion
+
+            #region LinkedList
+            var list = new LinkedList<int>();
+            for (int i = 0; i < 10; i++)
+            {
+                list.Push(i);
+            }
+
+            foreach (var i in list)
+            {
+                Console.WriteLine(i);
+            }
+
+            var count = list.Count;
+            for (int i = 0; i < count; i++)
+            {
+                Console.WriteLine(list.Pop());
+            }
+                
+            #endregion
+
             #endregion
         }
     }
