@@ -7,7 +7,6 @@ namespace FundamentalDataStructures
     {
         void Enqueue(T item);
         T Dequeue();
-        int Count();
         bool IsEmpty();
     }
 }

@@ -231,24 +231,48 @@ namespace AlgorithmsAndDataStructures
             #endregion
 
             #region FundamentalDataStructures
-            var myStack = new Stack<int>(3);
-            for (int i = 0; i < 10; i++)
-            {
-                myStack.Push(i);
-            }
+            #region StackClient
+            //var myStack = new Stack<int>(3);
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    myStack.Push(i);
+            //}
 
-            Console.WriteLine(myStack.Count);
+            //Console.WriteLine(myStack.Count);
 
 
-            foreach (var item in myStack)
-            {
-                Console.WriteLine(item);
-            }
-            Console.WriteLine("Poping Stack");
-            while (!myStack.IsEmpty())
-            {
-                Console.WriteLine(myStack.Pop());
-            }
+            //foreach (var item in myStack)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //Console.WriteLine("Poping Stack");
+            //while (!myStack.IsEmpty())
+            //{
+            //    Console.WriteLine(myStack.Pop());
+            //}
+            #endregion
+
+            #region QueueClient
+#endregion
+              var queue = new FundamentalDataStructures.Queue<int>(2);
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            Console.WriteLine(queue.Dequeue());
+            queue.Enqueue(3);
+            Console.WriteLine(queue.Dequeue());
+            queue.Enqueue(4);
+            queue.Enqueue(5);
+            queue.Enqueue(6);
+            queue.Enqueue(7);
+            queue.Enqueue(8);
+            queue.Enqueue(9);
+
+            Console.WriteLine(queue.Dequeue());
+            Console.WriteLine(queue.Dequeue());
+            Console.WriteLine(queue.Dequeue());
+            Console.WriteLine(queue.Dequeue());
+
+            Console.WriteLine(queue.Dequeue());
             #endregion
         }
     }

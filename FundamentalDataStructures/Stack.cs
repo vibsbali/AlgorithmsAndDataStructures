@@ -42,10 +42,10 @@ namespace FundamentalDataStructures
         public T Pop()
         {
             var item = Items[--Count];
-            Items[Count] = default(T);
+            Items[Count] = default(T);//Avoid Loitring
             if (Count > 0 && Count == Items.Length / 4)
             {
-                Resize(Items.Length / 2);
+                Resize(Items.Length / 2);  
             }
 
             return item;
