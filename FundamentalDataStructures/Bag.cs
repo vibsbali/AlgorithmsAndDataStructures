@@ -6,23 +6,32 @@ namespace FundamentalDataStructures
 {
     public class Bag<T> : IEnumerable<T>
     {
-        public int Count()
-        {
-            throw new NotImplementedException();
-        }
+        private Node<T> head; 
+        public int Count { get; private set; }
 
         public bool IsEmpty()
         {
-            throw new NotImplementedException();
+            return Count == 0;
         }
 
         public void Add(T item)
         {
-            throw new NotImplementedException();
+            var currentHead = head;
+            head = new Node<T>(item)
+            {
+                Next = currentHead
+            };
+            Count++;
         }
+
         public IEnumerator<T> GetEnumerator()
         {
-            throw new NotImplementedException();
+            var current = head;
+            while (current != null)
+            {
+                yield return current.Value;
+                current = current.Next;
+            }
         }
 
         IEnumerator IEnumerable.GetEnumerator()

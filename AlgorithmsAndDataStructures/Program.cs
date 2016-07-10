@@ -1,6 +1,6 @@
-﻿using System;
+﻿
+using System;
 using FundamentalDataStructures;
-
 
 namespace AlgorithmsAndDataStructures
 {
@@ -275,23 +275,35 @@ namespace AlgorithmsAndDataStructures
             #endregion
 
             #region LinkedList
-            var list = new LinkedList<int>();
-            for (int i = 0; i < 10; i++)
-            {
-                list.Push(i);
-            }
+            //var list = new LinkedList<int>();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    list.Push(i);
+            //}
 
-            foreach (var i in list)
-            {
-                Console.WriteLine(i);
-            }
+            //foreach (var i in list)
+            //{
+            //    Console.WriteLine(i);
+            //}
 
-            var count = list.Count;
-            for (int i = 0; i < count; i++)
-            {
-                Console.WriteLine(list.Pop());
-            }
-                
+            //var count = list.Count;
+            //for (int i = 0; i < count; i++)
+            //{
+            //    Console.WriteLine(list.Pop());
+            //}
+            #endregion
+
+            #region Bag
+            //var bag = new Bag<int>();
+            //for (int i = 0; i < 10; i++)
+            //{
+            //    bag.Add(i);
+            //}
+
+            //foreach (var i in bag)
+            //{
+            //    Console.WriteLine(i);
+            //}
             #endregion
 
             #endregion
