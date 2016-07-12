@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
+//Note this is not the proper implementation
 namespace FundamentalDataStructures
 {
-    public class UnionFindWithTree<T>
+    public class UnionFindWithTree<T> where T : IComparable<T>
     {
         readonly List<HashSet<T>> hashSetTrees = new List<HashSet<T>>();
         private int count;
@@ -33,7 +35,8 @@ namespace FundamentalDataStructures
                     hashSetTrees[root1].UnionWith(hashSetTrees[root2]);
                     hashSetTrees.Remove(hashSetTrees[root2]);
                     count--;
-                    return true;
+
+                    return false;
                 }
                 if (root1 != root2 && root2 == -1)
                 {
