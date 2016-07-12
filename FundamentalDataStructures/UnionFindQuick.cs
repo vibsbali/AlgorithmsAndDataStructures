@@ -3,13 +3,16 @@
     public class UnionFindQuick
     {
         private readonly int[] backingArray;
+        private readonly int[] depthArray;
 
         public UnionFindQuick(int size)
         {
             backingArray = new int[size];
+            depthArray = new int[size];
             for (int i = 0; i < backingArray.Length; i++)
             {
                 backingArray[i] = i;
+                depthArray[i] = 1;
             }
         }
 
@@ -35,7 +38,21 @@
                 return "Already Connected";
             }
 
-            backingArray[rootForFirstElement] = rootForSecondElement;
+            //backingArray[rootForFirstElement] = rootForSecondElement;
+            //OR following code with if/else statments
+            //Make smaller root point to larger one
+            if (depthArray[rootForFirstElement] < depthArray[rootForSecondElement])
+            {
+                backingArray[rootForFirstElement] = rootForSecondElement;
+                depthArray[rootForSecondElement] += depthArray[rootForFirstElement];
+            }
+            else
+            {
+                backingArray[rootForSecondElement] = rootForFirstElement;
+                depthArray[rootForFirstElement] += depthArray[rootForSecondElement];
+            }
+
+            
             return "Connected";
         }
     }
