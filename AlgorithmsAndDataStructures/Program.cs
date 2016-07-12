@@ -306,6 +306,22 @@ namespace AlgorithmsAndDataStructures
             //}
             #endregion
 
+            var dynamicConnectivity = new UnionFindBasic(10);
+
+            Console.WriteLine(dynamicConnectivity.Connect(4, 3));
+            Console.WriteLine(dynamicConnectivity.Connect(3, 8));
+            Console.WriteLine(dynamicConnectivity.Connect(6, 5));
+            Console.WriteLine(dynamicConnectivity.Connect(9, 4));
+            Console.WriteLine(dynamicConnectivity.Connect(2, 1));
+            Console.WriteLine(dynamicConnectivity.Connect(8, 9));
+            Console.WriteLine(dynamicConnectivity.Connect(5, 0));
+            Console.WriteLine(dynamicConnectivity.Connect(7, 2));
+            Console.WriteLine(dynamicConnectivity.Connect(6, 1));
+            Console.WriteLine(dynamicConnectivity.Connect(1, 0));
+            Console.WriteLine(dynamicConnectivity.Connect(6, 7));
+
+            Console.WriteLine(dynamicConnectivity.IsConnected(6, 7));
+
             #endregion
         }
     }
