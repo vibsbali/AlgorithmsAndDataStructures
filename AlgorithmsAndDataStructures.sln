@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringSortingAlgorithms", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FundamentalDataStructures", "FundamentalDataStructures\FundamentalDataStructures.csproj", "{704BC04F-70A3-44DC-82BA-BF5DB78B2FA1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sorting", "Sorting\Sorting.csproj", "{CC504A0D-7C03-4326-840F-FC7FF385DB23}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{704BC04F-70A3-44DC-82BA-BF5DB78B2FA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{704BC04F-70A3-44DC-82BA-BF5DB78B2FA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{704BC04F-70A3-44DC-82BA-BF5DB78B2FA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC504A0D-7C03-4326-840F-FC7FF385DB23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC504A0D-7C03-4326-840F-FC7FF385DB23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC504A0D-7C03-4326-840F-FC7FF385DB23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC504A0D-7C03-4326-840F-FC7FF385DB23}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

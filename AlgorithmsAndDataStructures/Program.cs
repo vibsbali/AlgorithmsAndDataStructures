@@ -1,6 +1,7 @@
 ﻿
 using System;
 using FundamentalDataStructures;
+using Sorting;
 
 namespace AlgorithmsAndDataStructures
 {
@@ -345,22 +346,36 @@ namespace AlgorithmsAndDataStructures
             #endregion
 
             #region dynamicConnectivityWithUnionFindQuick
-            var dynamicConnectivity = new UnionFindQuick(10);
+            //var dynamicConnectivity = new UnionFindQuick(10);
 
-            Console.WriteLine(dynamicConnectivity.Connect(4, 3));
-            Console.WriteLine(dynamicConnectivity.Connect(3, 8));
-            Console.WriteLine(dynamicConnectivity.Connect(6, 5));
-            Console.WriteLine(dynamicConnectivity.Connect(9, 4));
-            Console.WriteLine(dynamicConnectivity.Connect(2, 1));
-            Console.WriteLine(dynamicConnectivity.Connect(8, 9));
-            Console.WriteLine(dynamicConnectivity.Connect(5, 0));
-            Console.WriteLine(dynamicConnectivity.Connect(7, 2));
-            Console.WriteLine(dynamicConnectivity.Connect(6, 1));
-            Console.WriteLine(dynamicConnectivity.Connect(1, 0));
-            Console.WriteLine(dynamicConnectivity.Connect(6, 7));
+            //Console.WriteLine(dynamicConnectivity.Connect(4, 3));
+            //Console.WriteLine(dynamicConnectivity.Connect(3, 8));
+            //Console.WriteLine(dynamicConnectivity.Connect(6, 5));
+            //Console.WriteLine(dynamicConnectivity.Connect(9, 4));
+            //Console.WriteLine(dynamicConnectivity.Connect(2, 1));
+            //Console.WriteLine(dynamicConnectivity.Connect(8, 9));
+            //Console.WriteLine(dynamicConnectivity.Connect(5, 0));
+            //Console.WriteLine(dynamicConnectivity.Connect(7, 2));
+            //Console.WriteLine(dynamicConnectivity.Connect(6, 1));
+            //Console.WriteLine(dynamicConnectivity.Connect(1, 0));
+            //Console.WriteLine(dynamicConnectivity.Connect(6, 7));
 
-            
+
             #endregion
+
+            #endregion
+
+            #region SortingAlgorithms
+
+            var array = new[] {1, 3, 4, 2, 5, 0};
+            var sort = new Sort<int>(array);
+            sort.InsertionSort();
+
+            foreach (var i in array)
+            {
+                Console.WriteLine(i);
+            }
+
 
             #endregion
         }
