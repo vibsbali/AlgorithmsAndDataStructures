@@ -306,6 +306,7 @@ namespace AlgorithmsAndDataStructures
             //}
             #endregion
 
+            #region dynamicConnectivityBasic
             var dynamicConnectivity = new UnionFindBasic(10);
 
             Console.WriteLine(dynamicConnectivity.Connect(4, 3));
@@ -321,6 +322,27 @@ namespace AlgorithmsAndDataStructures
             Console.WriteLine(dynamicConnectivity.Connect(6, 7));
 
             Console.WriteLine(dynamicConnectivity.IsConnected(6, 7));
+
+            #endregion
+
+            #region dynamicConnectivityWithTrees
+            var dynamicConnectivityWithTrees = new UnionFindWithTree<int>();
+
+            Console.WriteLine("Using Trees");
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(4, 3));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(3, 8));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(6, 5));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(9, 4));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(2, 1));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(8, 9));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(5, 0));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(7, 2));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(6, 1));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(1, 0));
+            Console.WriteLine(dynamicConnectivityWithTrees.Connect(6, 7));
+
+            Console.WriteLine(dynamicConnectivityWithTrees.IsConnected(6, 7));
+            #endregion
 
             #endregion
         }
