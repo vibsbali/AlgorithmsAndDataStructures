@@ -367,15 +367,30 @@ namespace AlgorithmsAndDataStructures
 
             #region SortingAlgorithms
 
-            var array = new[] {1, 3, 4, 2, 5, 0};
+            //var array = new[] {3, 1, 5, 2, 4, 5, 2, 21, 4, 5, 2, 9, 10, 23, 43, 4, 2, 5, 6, 5, 0};
+            //var sort = new Sort<int>(array);
+            //sort.InsertionSort();
+            //array = new[] { 3, 1, 5, 2, 4, 5, 2, 21, 4, 5, 2, 9, 10, 23, 43, 4, 2, 5, 6, 5, 0 };
+            //sort = new Sort<int>(array);
+            //sort.ShellSort();
+
+            //foreach (var i in array)
+            //{
+            //    Console.WriteLine(i);
+            //}
+
+            var array = new int[150000000];
+            for (int i = 0; i < 150000000; i++)
+            {
+                array[i] = i;
+            }
             var sort = new Sort<int>(array);
-            sort.InsertionSort();
+            sort.MergeSort();
 
             foreach (var i in array)
             {
                 Console.WriteLine(i);
             }
-
 
             #endregion
         }
