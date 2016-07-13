@@ -1,6 +1,6 @@
 ﻿
 using System;
-using FundamentalDataStructures;
+using System.Diagnostics;
 using Sorting;
 
 namespace AlgorithmsAndDataStructures
@@ -388,13 +388,31 @@ namespace AlgorithmsAndDataStructures
                 j--;
             }
 
-            var sort = new Sort<int>(array);
-            sort.MergeSortBottomUp();
+            var stopwatch = new Stopwatch();
+            var sort = new BottomUpMergeSort();
+            stopwatch.Start();
+            sort.Sort(array);
+            stopwatch.Stop();
+            Console.WriteLine(stopwatch.ElapsedMilliseconds);
 
-            foreach (var i in array)
+            j = someValue;
+            for (int i = 0; i < someValue; i++)
             {
-                Console.WriteLine(i);
+                array[i] = j;
+                j--;
             }
+
+            
+            var sortTwo = new Sort<int>(array);
+            stopwatch.Start();
+            sortTwo.MergeSort();
+            stopwatch.Stop();
+            Console.WriteLine(stopwatch.ElapsedMilliseconds);
+
+            //foreach (var i in array)
+            //{
+            //    Console.WriteLine(i);
+            //}
 
             #endregion
         }
