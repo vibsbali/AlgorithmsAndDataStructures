@@ -176,6 +176,7 @@ namespace Sorting
             Merge(items, leftArray, rightArray);
         }
 
+        //Array copies are making the code slower
         private void Merge(T[] items, T[] leftArray, T[] rightArray)
         {
             int leftIndex = 0;
@@ -241,6 +242,7 @@ namespace Sorting
                     //We do not want aux array to be greater than array to sort
                     var aux = new T[leftArray.Length + rightArray.Length];
 
+                    //These Array.Copy make our algorithm slow
                     Array.Copy(arrayToSort, lo, leftArray, 0, size);
                     Array.Copy(arrayToSort, lo + size, rightArray, 0, rightArray.Length);
                     Array.Copy(arrayToSort, lo, aux, 0, aux.Length);
