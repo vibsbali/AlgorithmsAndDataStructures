@@ -214,18 +214,40 @@ namespace Sorting
 
         //On the surface this looks like quadratic o(n^2) but it is not! 
         //Notice how the increment count is not equal to 1 and also the inner loop's size varies
+        //TODO Important, if you like to implement bottom up approach then stick with the Algorithms book's design
         public void MergeSortBottomUp()
         {
-            var i = 2;
-            var auxArray = arrayToSort;
-            for (int j = i; j < auxArray.Length; j+=i)
+            var lengthOfArray = arrayToSort.Length;
+            //here we are running the loop until the size == lengthOfArray to sort
+            for (int size = 1; size < lengthOfArray; size+=size)
             {
-                for (int k = 0; k < UPPER; k++)
+                //We are multiplying size x 2 for step size
+                for (int lo = 0; lo < lengthOfArray; lo += (2*size))
                 {
-                    var left = new T[i - 1];
-                    Array.Copy(arrayToSort, 0, left, 0, i - 1);
-                    var right = new T[i - 1];
-                    Array.Copy(arrayToSort, left.Length - 1, right, 0, i - 1);
+                    var leftArray = new T[size];
+                    //If left Array is greater than half the size of left array
+                    var rightArray = new T[Math.Min(arrayToSort.Length - leftArray.Length, size)];
+
+                    if (lo + size >= arrayToSort.Length - 1)
+                    {
+                        break;
+                    }
+                    if (lo + size + rightArray.Length > arrayToSort.Length)
+                    {
+                        rightArray = new T[arrayToSort.Length - lo - size];
+                    }
+                    
+                    
+                    //We do not want aux array to be greater than array to sort
+                    var aux = new T[leftArray.Length + rightArray.Length];
+
+                    Array.Copy(arrayToSort, lo, leftArray, 0, size);
+                    Array.Copy(arrayToSort, lo + size, rightArray, 0, rightArray.Length);
+                    Array.Copy(arrayToSort, lo, aux, 0, aux.Length);
+
+                    Merge(aux, leftArray, rightArray);
+
+                    Array.Copy(aux, 0, arrayToSort,lo,aux.Length);
                 }
             }
         }
