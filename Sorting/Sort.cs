@@ -210,7 +210,24 @@ namespace Sorting
                 targetIndex++;
                 remaining--;
             }
+        }
 
+        //On the surface this looks like quadratic o(n^2) but it is not! 
+        //Notice how the increment count is not equal to 1 and also the inner loop's size varies
+        public void MergeSortBottomUp()
+        {
+            var i = 2;
+            var auxArray = arrayToSort;
+            for (int j = i; j < auxArray.Length; j+=i)
+            {
+                for (int k = 0; k < UPPER; k++)
+                {
+                    var left = new T[i - 1];
+                    Array.Copy(arrayToSort, 0, left, 0, i - 1);
+                    var right = new T[i - 1];
+                    Array.Copy(arrayToSort, left.Length - 1, right, 0, i - 1);
+                }
+            }
         }
     }
 }
