@@ -15,6 +15,10 @@ namespace Sorting
 
         public void Swap(int fromIndex, int toIndex)
         {
+            if (fromIndex == toIndex)
+            {
+                return;
+            }
             var temp = arrayToSort[toIndex];
             arrayToSort[toIndex] = arrayToSort[fromIndex];
             arrayToSort[fromIndex] = temp;
@@ -23,6 +27,10 @@ namespace Sorting
         //Overloaded Swap
         public void Swap(T[] arrayToSortOn, int fromIndex, int toIndex)
         {
+            if (fromIndex == toIndex)
+            {
+                return;
+            }
             var temp = arrayToSortOn[toIndex];
             arrayToSortOn[toIndex] = arrayToSortOn[fromIndex];
             arrayToSortOn[fromIndex] = temp;
@@ -267,6 +275,7 @@ namespace Sorting
         public T[] QuickSort()
         {
             //Step 1. Shuffle the array
+            Shuffle(arrayToSort);
 
             //Send it to Sort method so it can be called recursively
             QuickSortRecursion(arrayToSort, 0, arrayToSort.Length - 1);
@@ -288,6 +297,11 @@ namespace Sorting
             //run until the pointers pass over each other
             while (true)
             {
+                //The following check is not part of quick sort - it is your own modification
+                if (arrayToSortOn[lowIndex].CompareTo(arrayToSortOn[hiIndex]) > 0)
+                {
+                    Swap(arrayToSortOn,lowIndex, hiIndex);
+                }
                 var valueOfPivot = arrayToSortOn[pivot];
 
                 while (arrayToSortOn[lowIndex].CompareTo(valueOfPivot) <= 0 && lowIndex != hiIndex)
@@ -311,11 +325,25 @@ namespace Sorting
             }
             Swap(arrayToSortOn, pivot, hiIndex);
 
+            //Substracting 1 and adding 1 to hiIndex cause a huge call stack - hence we shuffle which is extremely important!
             QuickSortRecursion(arrayToSortOn, pivot, hiIndex - 1);
             QuickSortRecursion(arrayToSortOn, hiIndex + 1, originalHiIndex);
         }
 
+        private static Random rng = new Random();
 
+        public static void Shuffle(T[] array)
+        {
+            int n = array.Length;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                T value = array[k];
+                array[k] = array[n];
+                array[n] = value;
+            }
+        }
 
         //UnComment Following code to understand how QuickSort's methodology work
         //public T[] QuickSort()
