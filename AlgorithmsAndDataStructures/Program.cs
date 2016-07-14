@@ -1,7 +1,7 @@
 ﻿
 using System;
-using System.Diagnostics;
 using Sorting;
+
 
 namespace AlgorithmsAndDataStructures
 {
@@ -367,52 +367,13 @@ namespace AlgorithmsAndDataStructures
 
             #region SortingAlgorithms
 
-            //var array = new[] {3, 1, 5, 2, 5, 2, 10, -9,3, 22, 3, 1, 9, 10, 23, 43, 4, 2, 5, 6, 5, 0};
-            //var sort = new Sort<int>(array);
-            //sort.InsertionSort();
-            //array = new[] { 3, 1, 5, 2, 4, 5, 2, 21, 4, 5, 2, 9, 10, 23, 43, 4, 2, 5, 6, 5, 0 };
-            //sort = new Sort<int>(array);
-            //sort.ShellSort();
-
-            //foreach (var i in array)
-            //{
-            //    Console.WriteLine(i);
-            //}
-
-            int someValue = 100001;
-            var array = new int[someValue];
-            int j = someValue;
-            for (int i = 0; i < someValue; i++)
+            var array = new[] { 1, 5, 2, 4 };
+            var sort = new Sort<int>(array);
+            var newArray = sort.QuickSort();
+            foreach (var i in newArray)
             {
-                array[i] = j;
-                j--;
+                Console.WriteLine(i);
             }
-
-            var stopwatch = new Stopwatch();
-            var sort = new BottomUpMergeSort();
-            stopwatch.Start();
-            sort.Sort(array);
-            stopwatch.Stop();
-            Console.WriteLine(stopwatch.ElapsedMilliseconds);
-
-            j = someValue;
-            for (int i = 0; i < someValue; i++)
-            {
-                array[i] = j;
-                j--;
-            }
-
-            
-            var sortTwo = new Sort<int>(array);
-            stopwatch.Start();
-            sortTwo.MergeSort();
-            stopwatch.Stop();
-            Console.WriteLine(stopwatch.ElapsedMilliseconds);
-
-            //foreach (var i in array)
-            //{
-            //    Console.WriteLine(i);
-            //}
 
             #endregion
         }

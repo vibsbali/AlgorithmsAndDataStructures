@@ -20,6 +20,14 @@ namespace Sorting
             arrayToSort[fromIndex] = temp;
         }
 
+        //Overloaded Swap
+        public void Swap(T[] arrayToSortOn, int fromIndex, int toIndex)
+        {
+            var temp = arrayToSortOn[toIndex];
+            arrayToSortOn[toIndex] = arrayToSortOn[fromIndex];
+            arrayToSortOn[fromIndex] = temp;
+        }
+
         //Complexity o(n) if already sorted and o(n^2) is not sorted
         public T[] BubbleSort()
         {
@@ -253,5 +261,102 @@ namespace Sorting
                 }
             }
         }
+
+
+
+        public T[] QuickSort()
+        {
+            //Step 1. Shuffle the array
+
+            //Send it to Sort method so it can be called recursively
+            QuickSortRecursion(arrayToSort, 0, arrayToSort.Length - 1);
+
+            return arrayToSort;
+        }
+
+        private void QuickSortRecursion(T[] arrayToSortOn, int pivot, int hiIndex)
+        {
+            //This will cause our recursion to end
+            if (hiIndex <= pivot)
+            {
+                return;
+            }
+
+            var originalHiIndex = hiIndex;
+            var lowIndex = pivot + 1;
+
+            //run until the pointers pass over each other
+            while (true)
+            {
+                var valueOfPivot = arrayToSortOn[pivot];
+
+                while (arrayToSortOn[lowIndex].CompareTo(valueOfPivot) <= 0 && lowIndex != hiIndex)
+                {
+                    lowIndex++;
+                }
+
+                while (arrayToSortOn[hiIndex].CompareTo(valueOfPivot) > 0 && hiIndex > 0)
+                {
+                    hiIndex--;
+                }
+
+                if (lowIndex < hiIndex)
+                {
+                    Swap(arrayToSortOn, lowIndex, hiIndex);
+                }
+                else
+                {
+                    break;
+                }
+            }
+            Swap(arrayToSortOn, pivot, hiIndex);
+
+            QuickSortRecursion(arrayToSortOn, pivot, hiIndex - 1);
+            QuickSortRecursion(arrayToSortOn, hiIndex + 1, originalHiIndex);
+        }
+
+
+
+        //UnComment Following code to understand how QuickSort's methodology work
+        //public T[] QuickSort()
+        //{
+        //    //Step 1. Shuffle the array
+
+        //    //Send it to Sort method so it can be called recursively
+
+        //    //Step 2. pick pivot, lo, hi
+        //    var pivot = 0;
+        //    var lowIndex = pivot + 1;
+        //    var hiIndex = arrayToSort.Length - 1;
+
+        //    //run until the pointers pass over each other
+        //    while (true)
+        //    {
+        //        var valueOfPivot = arrayToSort[pivot];
+
+        //        while(arrayToSort[lowIndex].CompareTo(valueOfPivot) <= 0 && lowIndex < arrayToSort.Length)
+        //        {
+        //            lowIndex++;
+        //        }
+
+        //        while(arrayToSort[hiIndex].CompareTo(valueOfPivot) > 0 && hiIndex > 0)
+        //        {
+        //            hiIndex--;
+        //        }
+
+        //        if (lowIndex < hiIndex)
+        //        {
+        //            Swap(lowIndex, hiIndex);
+        //        }
+        //        else
+        //        {
+        //            break;
+        //        }
+        //    }
+
+        //    Swap(pivot, hiIndex);
+
+        //    return arrayToSort;
+        //}
     }
 }
