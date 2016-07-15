@@ -2,7 +2,7 @@
 {
     public class SubstringSearch
     {
-        public int BruteForce(string input, string pattern)
+        public int KnuthMorrisPratt(string input, string pattern)
         {
             if (string.IsNullOrEmpty(input) || string.IsNullOrEmpty(pattern))
             {

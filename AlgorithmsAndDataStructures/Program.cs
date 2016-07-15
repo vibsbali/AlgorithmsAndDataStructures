@@ -386,9 +386,9 @@ namespace AlgorithmsAndDataStructures
 
             #endregion
 
-            var name = "Vaibhav";
+            var name = "BABAAABAABAABAAAAAA";
             var stringSearching = new SubstringSearch();
-            var result = stringSearching.BruteForce("", "Vaib");
+            var result = stringSearching.KnuthMorrisPratt(name, "BAAAAAA");
 
             Console.WriteLine(result);
         }
