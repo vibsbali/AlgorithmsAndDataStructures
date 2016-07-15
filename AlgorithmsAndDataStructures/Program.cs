@@ -387,9 +387,9 @@ namespace AlgorithmsAndDataStructures
             #endregion
 
             //var name = "a b c e f a l f c a b c d f s a f d";
-            var name = "abcefalfcabcdfsafd";
+            var name = "Vaibhav Weds Sheebu";
             var stringSearching = new SubstringSearch();
-            var result = stringSearching.BoyerMoreHorsepoolAlgorithm(name, "abcd");
+            var result = stringSearching.BoyerMoreHorsepoolAlgorithm(name, "Sushant");
 
             Console.WriteLine(result);
         }

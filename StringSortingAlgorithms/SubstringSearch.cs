@@ -115,6 +115,11 @@ namespace StringSortingAlgorithms
         private int SearchString(string input, string pattern, int offset, int index)
         {
             var indexToSearchFrom = pattern.Length - 1;
+            //check to ensure that offset + index doesn't cause out of bounds exception for input string
+            if (offset + index >= input.Length)
+            {
+                return -1;
+            }
             for (int i = offset + index; i >= 0 && indexToSearchFrom >= 0; i--)
             {
                 if (input[i] == pattern[indexToSearchFrom])
