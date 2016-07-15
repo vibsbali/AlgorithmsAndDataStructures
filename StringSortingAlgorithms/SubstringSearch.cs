@@ -47,6 +47,7 @@ namespace StringSortingAlgorithms
         *  If we match H then it is good and we can start comparing backwards, if there is a mismatch and the character
         *  in string to search in has character U then we should move our TRUTH to 2 indices to right. If it was a R we would have
         *  moved 3 character and if it was T then only 1
+        *  If you want to match space then ensure to add space at the begining of the pattern
         */
 
         public int BoyerMoreHorsepoolAlgorithm(string input, string pattern)
@@ -63,13 +64,73 @@ namespace StringSortingAlgorithms
                 }
             }
 
-            foreach (var i in badMatchTable)
+            //From here on we start the matching process
+            var lengthOfPattern = pattern.Length;
+            //We want to start matching from left to right so we skip number of items in input equal to pattern' length
+            for (int i = lengthOfPattern - 1; i < input.Length; i+=lengthOfPattern)
             {
-                Console.WriteLine(i.Key + " -> " + i.Value);
+                //If we find the that right's character of pattern matches with inputString's character
+                if (input[i] == pattern[lengthOfPattern - 1])
+                {
+                    var result = SearchString(input, pattern, 0, i);
+                    if (result != -1)
+                    {
+                        return result;
+                    }
+                    #region redundant
+                    //var currentIndex = lengthOfPattern - 1;
+                    //for (int k = i; k >= 0; k--)
+                    //{
+                    //    if (input[i] == pattern[currentIndex])
+                    //    {
+                    //        currentIndex--;
+                    //        if (currentIndex == 0)
+                    //        {
+                    //            return k;
+                    //        }
+                    //    }
+                    //}
+#endregion
+                }
+                //Else if we find that right's character of pattern doesnt match with input string' character but the character is in bad match table 
+                //i.e. HELLO WORLD is our input string and pattern is OR
+                //             OR <- At this stage O And R doesn't match but O is in bad match table 
+                else if (input[i] != pattern[lengthOfPattern - 1] && badMatchTable.ContainsKey(input[i]))
+                {
+                    //get the value which determines our offset
+                    var value = badMatchTable[input[i]];
+                    var result = SearchString(input, pattern, value, i);
+                    if (result != -1)
+                    {
+                        return result;
+                    }
+                }
             }
 
-            return 1;
+            return -1;
         }
-
+        //Used in conjuction with BoyerMoreHorsepool algorithm
+        //Accepts input and pattern string along with offset and index value
+        //offset tell how much to the right pattern needs to be matched
+        private int SearchString(string input, string pattern, int offset, int index)
+        {
+            var indexToSearchFrom = pattern.Length - 1;
+            for (int i = offset + index; i >= 0 && indexToSearchFrom >= 0; i--)
+            {
+                if (input[i] == pattern[indexToSearchFrom])
+                {
+                    if (indexToSearchFrom == 0)
+                    {
+                        return i;
+                    }
+                    --indexToSearchFrom;
+                }
+                else
+                {
+                    return -1;
+                }
+            }
+            return -1;
+        }
     }
 }
