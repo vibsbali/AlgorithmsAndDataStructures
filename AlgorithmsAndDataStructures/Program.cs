@@ -388,7 +388,7 @@ namespace AlgorithmsAndDataStructures
 
             var name = "Phil drodroppeded his phone";
             var stringSearching = new SubstringSearch();
-            var result = stringSearching.BruteForce(name, "ped");
+            var result = stringSearching.BoyerMoreHorsepoolAlgorithm(name, "TRUTH");
 
             Console.WriteLine(result);
         }
