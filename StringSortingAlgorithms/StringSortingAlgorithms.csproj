@@ -43,6 +43,7 @@
     <Compile Include="LSDSort.cs" />
     <Compile Include="MSDSort.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubstringSearch.cs" />
     <Compile Include="ThreeWayQuickSort.cs" />
     <Compile Include="Trie.cs" />
   </ItemGroup>

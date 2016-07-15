@@ -1,6 +1,7 @@
 ﻿
 using System;
 using Sorting;
+using StringSortingAlgorithms;
 
 
 namespace AlgorithmsAndDataStructures
@@ -367,21 +368,29 @@ namespace AlgorithmsAndDataStructures
 
             #region SortingAlgorithms
 
-            var array = new int[10000000];
-            for (int i = 0; i < array.Length; i++)
-            {
-                array[i] = array.Length - i;
-            }
-            var sort = new Sort<int>(array);
-            var newArray = sort.QuickSort();
-            foreach (var i in newArray)
-            {
-                Console.WriteLine(i);
-            }
+            //var array = new int[100000000];
+            //for (int i = 0; i < array.Length; i++)
+            //{
+            //    array[i] = array.Length - i;
+            //}
+            //var sort = new Sort<int>(array);
+            //var newArray = sort.QuickSort();
+            //Console.WriteLine("Sort Completed");
+            ////foreach (var i in newArray)
+            ////{
+            ////    Console.WriteLine(i);
+            ////}
 
-            Array.Sort(new int[100000]);
+            //Sort<int>.Shuffle(array);
+            //Array.Sort(array);
 
             #endregion
+
+            var name = "Vaibhav";
+            var stringSearching = new SubstringSearch();
+            var result = stringSearching.BruteForce("", "Vaib");
+
+            Console.WriteLine(result);
         }
     }
 }
