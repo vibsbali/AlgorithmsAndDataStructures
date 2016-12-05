@@ -314,6 +314,7 @@ namespace Sorting
                     hiIndex--;
                 }
 
+                //We only exchange if the pointers have not crossed
                 if (lowIndex < hiIndex)
                 {
                     Swap(arrayToSortOn, lowIndex, hiIndex);
